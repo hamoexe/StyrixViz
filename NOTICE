@@ -1,0 +1,38 @@
+Styrix Viz
+Copyright 2026 Hamo
+
+This product is a derivative work of Avee Open Player (Avee 1.0.34 source release).
+
+  Copyright 2019 Avee Player
+  Licensed under the Apache License, Version 2.0
+
+Changes made in this fork:
+  - Java package renamed from com.aveeopen to com.hamo.styrixviz
+  - applicationId set to com.hamo.styrixviz, version reset to 1.0.0 (versionCode 1)
+  - App name changed to "Styrix Viz"
+  - Launcher and status bar icons replaced with new artwork
+  - IDE project metadata removed
+  - README rewritten
+  Source files carrying the original copyright header have a "Modified for Styrix Viz" line added.
+
+The names, trademarks and logos of Avee Player are not used by this product.
+
+Third-party components included in the source tree or in app/libs:
+
+  christophedelory.* (playlist, plist, atom, rss parsing)
+    Copyright (c) 2008, Christophe Delory. BSD-style license, see headers in
+    app/src/main/java/christophedelory/.
+
+  mdesl.* (OpenGL helpers)
+    Copyright (c) 2012, Matt DesLauriers. BSD 3-clause license, see headers in
+    app/src/main/java/mdesl/.
+
+  com.google.android.exoplayer.demo.* and ExoPlayer-library-release.aar
+    Copyright (C) 2014 The Android Open Source Project. Apache License 2.0.
+
+  Picasso 2.5.2 (picasso-2.5.2.jar)
+    Copyright 2013 Square, Inc. Apache License 2.0.
+
+  Guava 24.1-jre, JetBrains annotations 12.0, recyclerviewfastscroller,
+  Android support libraries, Google Play Services Ads
+    Distributed under their respective licenses.
