@@ -48,6 +48,7 @@ public class AppPreferences implements SharedPreferences.OnSharedPreferenceChang
     public static WeakEvent2<Integer /*preference*/, String /*value*/> onStringPreferenceChanged = new WeakEvent2<>();
 
     private static final Object createInstanceLock = new Object();
+    private volatile Context syncContext;
     private static volatile WeakReference<AppPreferences> instanceWeak = new WeakReference<>(null);
 
     private static int offset_Bool = 1000;
@@ -127,7 +128,7 @@ public class AppPreferences implements SharedPreferences.OnSharedPreferenceChang
         setIntDefault(PREF_Int_recentlyAddedWeeks, 2);
         setIntDefault(PREF_Int_visualizerThemeId, 8);//themeid 7
         setIntDefault(PREF_Int_lockOrient, 0);//0 - disabled
-        setIntDefault(PREF_Int_playbackEngine, 1);//0 - native //1 - exo
+        setIntDefault(PREF_Int_playbackEngine, 0);//0 - native //1 - exo
         setIntDefault(PREF_Int_videoScalingMode, 1);//1 - fit
         setIntDefault(PREF_Int_SortSelectedRadioOption, SortDesign.Sort_Mode_Title);//title
         setIntDefault(PREF_Int_SortMaskCheckOptions, 0);
@@ -224,6 +225,14 @@ public class AppPreferences implements SharedPreferences.OnSharedPreferenceChang
     public void setInt(final int preference, final int value, boolean userForce) {
         int oldValue = prefsInt.getAndSet(preference - offset_Int, value);
 
+        // keep the Settings screen in sync when the engine is switched from the player menu
+        if (preference == PREF_Int_playbackEngine && value != oldValue && syncContext != null) {
+            try {
+                getPreferences(syncContext).edit().putString("pref_playbackEngine", "" + value).apply();
+            } catch (Exception ignored) {
+            }
+        }
+
         if (userForce || value != oldValue)
             onIntPreferenceChanged.invoke(preference, value, userForce);
     }
@@ -247,7 +256,23 @@ public class AppPreferences implements SharedPreferences.OnSharedPreferenceChang
         prefsString.set(preference - offset_String, value);
     }
 
+    /**
+     * One-time defaults: Styrix Viz starts on the Native MediaPlayer engine
+     * (plays .opus, which the bundled ExoPlayer v1 cannot). Must run before setDefaultValues().
+     */
+    public static void applyDefaultsMigration(Context context) {
+        SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(context);
+        if (p.getBoolean("styrix_defaults_v1", false)) return;
+
+        p.edit()
+                .putString("pref_playbackEngine", "0")
+                .putInt("int" + (PREF_Int_playbackEngine - offset_Int), 0)
+                .putBoolean("styrix_defaults_v1", true)
+                .apply();
+    }
+
     private void onContext(Context appContext) {
+        syncContext = appContext.getApplicationContext();
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(appContext);
         settings.registerOnSharedPreferenceChangeListener(this);
 

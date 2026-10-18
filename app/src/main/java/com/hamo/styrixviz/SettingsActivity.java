@@ -21,6 +21,7 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
@@ -80,6 +81,16 @@ public class SettingsActivity extends PreferenceActivity {
 
             EditTextPreference buttonPlaylistDefaultPath = (EditTextPreference) findPreference("pref_playlistDefaultPath");
             buttonPlaylistDefaultPath.setSummary(buttonPlaylistDefaultPath.getText());
+
+            Preference about = findPreference("pref_appVersion");
+            if (about != null) {
+                try {
+                    PackageInfo pi = getActivity().getPackageManager()
+                            .getPackageInfo(getActivity().getPackageName(), 0);
+                    about.setSummary("Version " + pi.versionName + " - free, no ads, no premium");
+                } catch (Exception ignored) {
+                }
+            }
 
             addMyResetListener();
         }

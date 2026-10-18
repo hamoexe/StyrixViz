@@ -221,6 +221,7 @@ public class MainActivity extends Activity {
         sectionsPagerAdapter = null;
         viewPager = null;
 
+        AppPreferences.applyDefaultsMigration(this.getApplicationContext());
         PreferenceManager.setDefaultValues(this.getApplicationContext(), R.xml.preferences, false);
 
         onCreateEarly.invoke(this.getApplicationContext());

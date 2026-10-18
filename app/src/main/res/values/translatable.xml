@@ -298,7 +298,7 @@
         <item>0</item>
         <item>1</item>
     </string-array>
-    <string name="pref_playbackEngine_default">1</string>
+    <string name="pref_playbackEngine_default">0</string>
 
     <string name="pref_highQualityBlur_txt1">High quality blur</string>
     <string name="pref_highQualityBlur_txt2">May greatly reduce visualizer frame rate</string>

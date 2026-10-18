@@ -49,7 +49,7 @@
         android:title="@string/pref_resumePlayingAfterAudioFocusGained" />
 
     <com.hamo.styrixviz.Common.ListPreferenceCompat
-        android:defaultValue="@string/pref_playbackEngine_default"
+        android:defaultValue="0"
         android:dialogTitle="@string/pref_playbackEngine"
         android:entries="@array/pref_playbackEngine_entries"
         android:entryValues="@array/pref_playbackEngine_values"
@@ -84,6 +84,11 @@
         android:key="pref_resetToDefault"
         android:summary="@string/pref_reset_dialog_message"
         android:title="Reset to default" />
+
+    <Preference
+        android:key="pref_appVersion"
+        android:selectable="false"
+        android:title="About Styrix Viz" />
 
     <Preference
         android:key="pref_openSourceLicenses"
