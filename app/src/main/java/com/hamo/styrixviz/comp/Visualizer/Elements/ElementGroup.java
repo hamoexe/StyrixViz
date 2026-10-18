@@ -20,7 +20,7 @@ package com.hamo.styrixviz.comp.Visualizer.Elements;
 import com.hamo.styrixviz.Common.tlog;
 import com.hamo.styrixviz.comp.Visualizer.Graphic.RenderState;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 import java.util.ArrayList;
 import java.util.List;
 

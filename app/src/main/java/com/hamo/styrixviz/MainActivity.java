@@ -31,10 +31,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.NonNull;
+import androidx.legacy.app.FragmentPagerAdapter;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
@@ -491,49 +491,37 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        switch (id) {
-            case R.id.home:
-                break;
-
-            case R.id.menu_close:
-                doExit();
-                return true;
-
-            case R.id.menu_settings:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.menu_sleep_timer:
-                onMainUIAction.invoke(1, new ContextData(this));
-                return true;
-
-            case R.id.menu_equalizer:
-                onMainUIAction.invoke(3, new ContextData(this));
-                return true;
-
-            case R.id.action_bar_sleep_timer_indicator:
-                onMainUIAction.invoke(1, new ContextData(this));
-                return true;
-
-            case R.id.menu_lock_orient:
-                onMainUIAction.invoke(2, new ContextData(this));
-                break;
-
-            case R.id.action_bar_lock_orient_indicator:
-                onMainUIAction.invoke(2, new ContextData(this));
-                break;
-            case R.id.menu_lib:
-                viewPager.setCurrentItem(0);
-                return true;
-
-            case R.id.menu_queue:
-                viewPager.setCurrentItem(1);
-                return true;
-
-            case R.id.menu_visual:
-                viewPager.setCurrentItem(2);
-                return true;
+        if (id == android.R.id.home) {
+            // handled by super
+        } else if (id == R.id.menu_close) {
+            doExit();
+            return true;
+        } else if (id == R.id.menu_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.menu_sleep_timer) {
+            onMainUIAction.invoke(1, new ContextData(this));
+            return true;
+        } else if (id == R.id.menu_equalizer) {
+            onMainUIAction.invoke(3, new ContextData(this));
+            return true;
+        } else if (id == R.id.action_bar_sleep_timer_indicator) {
+            onMainUIAction.invoke(1, new ContextData(this));
+            return true;
+        } else if (id == R.id.menu_lock_orient) {
+            onMainUIAction.invoke(2, new ContextData(this));
+        } else if (id == R.id.action_bar_lock_orient_indicator) {
+            onMainUIAction.invoke(2, new ContextData(this));
+        } else if (id == R.id.menu_lib) {
+            viewPager.setCurrentItem(0);
+            return true;
+        } else if (id == R.id.menu_queue) {
+            viewPager.setCurrentItem(1);
+            return true;
+        } else if (id == R.id.menu_visual) {
+            viewPager.setCurrentItem(2);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

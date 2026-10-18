@@ -32,7 +32,7 @@ import com.hamo.styrixviz.ContextData;
 import com.hamo.styrixviz.MainActivity;
 import com.hamo.styrixviz.R;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

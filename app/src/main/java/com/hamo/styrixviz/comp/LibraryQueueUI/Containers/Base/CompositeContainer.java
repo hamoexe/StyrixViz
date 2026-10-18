@@ -26,7 +26,7 @@ import com.hamo.styrixviz.comp.Common.IGeneralItemContainerIdentifier;
 import com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Adapter.ViewAdapter;
 import com.hamo.styrixviz.ContextData;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

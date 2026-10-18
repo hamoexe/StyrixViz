@@ -55,7 +55,6 @@ import com.hamo.styrixviz.comp.playback.Song.PlaylistSong;
 import com.hamo.styrixviz.comp.PlaybackQueue.IPlaylistSongContainerIdentifier;
 import com.hamo.styrixviz.ContextData;
 import com.hamo.styrixviz.Design.SortDesign;
-import com.google.android.gms.ads.AdView;
 
 import java.io.File;
 import java.util.Collection;
@@ -109,7 +108,6 @@ public class LibraryQueueFragmentBase extends Fragment implements IContainerData
     public static WeakEventR<Boolean> onUIRequestFollowCurrentValue = BaseHeaderViewHolder.onUIRequestFollowCurrentValue;
     public static WeakEvent1<ContextData> onActionChooseSortFiles = BaseHeaderViewHolder.onActionChooseSortFiles;
     public static WeakEvent1<ContextData> onActionChooseSort = BaseHeaderViewHolder.onActionChooseSort;
-    public static WeakEvent3<AdView /*adView*/, Integer /*id*/, Integer /*containerItemCount*/> onShowAdView = BaseViewHolder.onShowAdView;
 
     //ContainerBase
     public static WeakEventR2<Integer /*pageIndex*/, IGeneralItemContainerIdentifier /*containerIdentifier*/, String> onRequestSearchQuery = ContainerBase.onRequestSearchQuery;

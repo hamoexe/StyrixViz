@@ -11,6 +11,13 @@ Changes made in this fork:
   - applicationId set to com.hamo.styrixviz, version reset to 1.0.0 (versionCode 1)
   - App name changed to "Styrix Viz"
   - Launcher and status bar icons replaced with new artwork
+  - Advertising removed (Google Play Services Ads dependency, AdView layouts, AdsDesign class)
+  - Guava dependency removed (ConcurrentWeakHashMap now uses only the JDK)
+  - JUnit dependency removed (small in-app Assert helper added)
+  - Migrated from the Android support libraries to AndroidX
+  - Build files rewritten for Gradle 9.6.1 / Android Gradle Plugin 9.3.1 (namespace, compileSdk 36, minSdk 21)
+  - switch statement on R.id values in MainActivity rewritten as if/else
+  - Prebuilt original app-release.apk removed from the source tree
   - IDE project metadata removed
   - README rewritten
   Source files carrying the original copyright header have a "Modified for Styrix Viz" line added.
@@ -33,6 +40,9 @@ Third-party components included in the source tree or in app/libs:
   Picasso 2.5.2 (picasso-2.5.2.jar)
     Copyright 2013 Square, Inc. Apache License 2.0.
 
-  Guava 24.1-jre, JetBrains annotations 12.0, recyclerviewfastscroller,
-  Android support libraries, Google Play Services Ads
+  JetBrains annotations 12.0 (annotations-12.0.jar), recyclerviewfastscroller
+  (recyclerviewfastscroller-release.aar)
     Distributed under their respective licenses.
+
+  AndroidX libraries (appcompat, core, recyclerview, viewpager, legacy-support-v13)
+    Copyright The Android Open Source Project. Apache License 2.0.

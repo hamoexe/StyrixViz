@@ -21,7 +21,7 @@ import android.os.AsyncTask;
 
 import com.hamo.styrixviz.Common.Events.WeakEvent2;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 public class SearchTaskManager {
 

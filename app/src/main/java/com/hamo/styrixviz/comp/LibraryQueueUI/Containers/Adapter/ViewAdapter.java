@@ -17,7 +17,7 @@
 
 package com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Base.IContainerData;

@@ -1,28 +1,15 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+// Top-level build file. Toolchain matches Code On the Go: Gradle 9.6.1, AGP 9.3.1, Kotlin 2.3.21.
 buildscript {
     repositories {
-        jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
         google()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.21'
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
-    }
+plugins {
+    id 'com.android.application' version '9.3.1' apply false
+    id 'com.android.library' version '9.3.1' apply false
 }

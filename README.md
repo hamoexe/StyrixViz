@@ -30,8 +30,12 @@ Styrix Viz is a fork of the open source **Avee Open Player (Avee 1.0.34)** sourc
 
 ## Building
 
-Open the project in Android Studio (or CodeOnTheGo) and run the `app` module.
-The build files are from 2019 (Android Gradle Plugin 3.4.1, compileSdk 28, support libraries), so they will need updating for a modern toolchain.
+Open the project in Android Studio or Code On the Go and run the `app` module.
+
+- Toolchain: Gradle 9.6.1, Android Gradle Plugin 9.3.1 (the versions Code On the Go ships), compileSdk 36, minSdk 21, targetSdk 28
+- Dependencies are AndroidX only; ExoPlayer and the fast scroller are prebuilt `.aar` files in `app/libs`
+- If Gradle cannot resolve the AndroidX artifacts, turn off the `--offline` flag once (Code On the Go: Preferences > Build & Run > Additional Gradle flags) so they can be downloaded
+- Ads were removed in this fork
 
 ## License
 

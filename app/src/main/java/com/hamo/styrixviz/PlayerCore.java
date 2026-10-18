@@ -43,7 +43,6 @@ import com.hamo.styrixviz.comp.GlobalSearch.GlobalSearchCore;
 import com.hamo.styrixviz.comp.playback.MediaPlaybackService;
 import com.hamo.styrixviz.comp.PlaybackQueue.QueueCore;
 import com.hamo.styrixviz.comp.SleepTimer.SleepTimer;
-import com.hamo.styrixviz.Design.AdsDesign;
 import com.hamo.styrixviz.Design.PlaybackDesign;
 
 public class PlayerCore {
@@ -85,7 +84,6 @@ public class PlayerCore {
         design[8] = new PlaylistsDesign();
         design[9] = new PlayerControlsUIDesign();
         design[10] = new ContextualActionModeDesign();
-        design[12] = new AdsDesign();
         design[13] = new AudioEffectsDesign();
         design[14] = new AppThemesDesign();
         design[15] = WidgetAndNotificationDesign.createInstance();

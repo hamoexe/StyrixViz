@@ -17,16 +17,13 @@
 
 package com.hamo.styrixviz.comp.LibraryQueueUI.ViewHolders;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Base.IContainerData;
 import com.hamo.styrixviz.Common.Events.WeakEvent3;
-import com.google.android.gms.ads.AdView;
 
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
-
-    public static WeakEvent3<AdView /*adView*/, Integer /*id*/, Integer /*containerItemCount*/> onShowAdView = new WeakEvent3<>();
 
     public BaseViewHolder(View itemView) {
         super(itemView);

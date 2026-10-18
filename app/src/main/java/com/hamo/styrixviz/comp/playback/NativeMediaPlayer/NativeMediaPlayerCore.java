@@ -35,7 +35,7 @@ import com.hamo.styrixviz.comp.playback.IMediaPlayerCore;
 import com.hamo.styrixviz.comp.playback.Song.IMediaDataSource;
 import com.hamo.styrixviz.EventsGlobal.EventsGlobalApp;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;

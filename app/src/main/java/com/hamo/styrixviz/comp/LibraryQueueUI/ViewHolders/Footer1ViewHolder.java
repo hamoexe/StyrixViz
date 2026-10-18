@@ -26,8 +26,6 @@ import com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Base.IContainerData;
 import com.hamo.styrixviz.Common.UtilsUI;
 import com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Base.ContainerBase;
 import com.hamo.styrixviz.R;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdView;
 
 import java.lang.ref.WeakReference;
 
@@ -35,9 +33,6 @@ public class Footer1ViewHolder
         extends BaseViewHolder
         implements ContainerBase.IContainerStatusListener {
 
-    //ADS
-    private static boolean adViewLastTimeLoadSuccess = false;//if we are offline/online, show ad visible/gone before its loaded, so no blinking space
-    private AdView adView;
     private TextView textInfo, textInfoItems;
 
     public Footer1ViewHolder(Context context, ViewGroup parent) {
@@ -53,35 +48,9 @@ public class Footer1ViewHolder
         params.height = UtilsUI.getNavBarHeightIgnoreOrienCached(context);
         navBarPlaceHolder.setLayoutParams(params);
 
-        adView = (AdView) view.findViewById(R.id.adView);
-
-        if (adView != null) {
-
-            if (adViewLastTimeLoadSuccess)
-                adView.setVisibility(ViewGroup.VISIBLE);
-            else
-                adView.setVisibility(ViewGroup.GONE);
-
-            adView.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                    adView.setVisibility(ViewGroup.VISIBLE);
-                    adViewLastTimeLoadSuccess = true;
-                }
-
-                @Override
-                public void onAdFailedToLoad(int errorCode) {
-                    adView.setVisibility(ViewGroup.GONE);
-                    adViewLastTimeLoadSuccess = false;
-                }
-            });
-        }
     }
 
     public void onBind(final IContainerData containerData, int position) {
-        if (adView != null)
-            onShowAdView.invoke(adView, 1, containerData.getItemCount());
-
         textInfo.setText("");
         textInfoItems.setText("");
         containerData.setContainerStatusListener(new WeakReference<ContainerBase.IContainerStatusListener>(this));

@@ -30,8 +30,6 @@ import com.hamo.styrixviz.Common.Events.WeakEventR;
 import com.hamo.styrixviz.comp.AppPreferences.AppPreferences;
 import com.hamo.styrixviz.ContextData;
 import com.hamo.styrixviz.R;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdView;
 
 import java.util.List;
 
@@ -44,36 +42,9 @@ public abstract class BaseHeaderViewHolder extends BaseViewHolder {
     public static WeakEvent1<ContextData /*contextData*/> onLibraryQueue2UI_ActionScanStandalonePlaylist = new WeakEvent1<>();
     public static WeakEvent3<long[] /*addSongsNativePL*/, List<String> /*addSongDataSources*/, ContextData /*contextData*/> onActionCreatePlaylist = new WeakEvent3<>();
 
-    private static boolean mAdViewLastTimeLoadSuccess = false;//if we are offline/online, show ad visible/gone before its loaded, so no blinking space
-    //ADS
-    private AdView adView;
-
     public BaseHeaderViewHolder(View itemView) {
         super(itemView);
 
-        adView = (AdView) itemView.findViewById(R.id.adView);
-
-        if (adView != null) {
-
-            if (mAdViewLastTimeLoadSuccess)
-                adView.setVisibility(ViewGroup.VISIBLE);
-            else
-                adView.setVisibility(ViewGroup.GONE);
-
-            adView.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                    adView.setVisibility(ViewGroup.VISIBLE);
-                    mAdViewLastTimeLoadSuccess = true;
-                }
-
-                @Override
-                public void onAdFailedToLoad(int errorCode) {
-                    adView.setVisibility(ViewGroup.GONE);
-                    mAdViewLastTimeLoadSuccess = false;
-                }
-            });
-        }
     }
 
     protected static void updateShowButtonTexts(TextView[] buttonTexts, Context context) {
@@ -92,8 +63,6 @@ public abstract class BaseHeaderViewHolder extends BaseViewHolder {
 
     @Override
     public void onBind(IContainerData containerData, int position) {
-        if (adView != null)
-            onShowAdView.invoke(adView, 0, containerData.getItemCount());
     }
 
 }

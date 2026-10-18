@@ -18,7 +18,7 @@
 package com.hamo.styrixviz.comp.LibraryQueueUI.Containers;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.hamo.styrixviz.Common.MultiList;
@@ -45,7 +45,7 @@ import com.hamo.styrixviz.ContextData;
 import com.hamo.styrixviz.Design.PlaybackControlsDesign;
 import com.hamo.styrixviz.R;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import java.util.List;
 

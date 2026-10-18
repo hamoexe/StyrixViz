@@ -25,8 +25,8 @@ import android.net.Uri;
 import android.os.Looper;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.ColorUtils;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import android.widget.ImageView;
 
 import com.AOSP.MyThumbnailUtils;

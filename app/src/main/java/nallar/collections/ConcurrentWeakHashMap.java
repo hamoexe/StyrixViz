@@ -1,97 +1,147 @@
 package nallar.collections;
 
-import com.google.common.collect.MapMaker;
-
 import java.util.*;
-import java.util.concurrent.*;
 
+/**
+ * Weak-keyed map that is safe to use from several threads.
+ * All access goes through one lock and the key/value/entry views are snapshots,
+ * so iterating while other threads (or listeners) add entries never throws
+ * ConcurrentModificationException. Replaces the earlier Guava MapMaker based version.
+ */
 public class ConcurrentWeakHashMap extends WeakHashMap {
-	private static final MapMaker mapMaker = new MapMaker().weakKeys();
-	private final ConcurrentMap map = mapMaker.makeMap();
+	private final Map map = new WeakHashMap();
 
 	public Object putIfAbsent(final Object key, final Object value) {
-		return map.putIfAbsent(key, value);
+		synchronized (map) {
+			Object existing = map.get(key);
+			if (existing == null) {
+				map.put(key, value);
+			}
+			return existing;
+		}
 	}
 
 	public Object replace(final Object key, final Object value) {
-		return map.replace(key, value);
+		synchronized (map) {
+			return map.containsKey(key) ? map.put(key, value) : null;
+		}
 	}
 
 	public boolean remove(final Object key, final Object value) {
-		return map.remove(key, value);
+		synchronized (map) {
+			if (map.containsKey(key) && Objects.equals(map.get(key), value)) {
+				map.remove(key);
+				return true;
+			}
+			return false;
+		}
 	}
 
 	public boolean replace(final Object key, final Object oldValue, final Object newValue) {
-		return map.replace(key, oldValue, newValue);
+		synchronized (map) {
+			if (map.containsKey(key) && Objects.equals(map.get(key), oldValue)) {
+				map.put(key, newValue);
+				return true;
+			}
+			return false;
+		}
 	}
 
 	@Override
 	public int size() {
-		return map.size();
+		synchronized (map) {
+			return map.size();
+		}
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return map.isEmpty();
+		synchronized (map) {
+			return map.isEmpty();
+		}
 	}
 
 	@Override
 	public boolean containsKey(final Object key) {
-		return map.containsKey(key);
+		synchronized (map) {
+			return map.containsKey(key);
+		}
 	}
 
 	@Override
 	public boolean containsValue(final Object value) {
-		return map.containsValue(value);
+		synchronized (map) {
+			return map.containsValue(value);
+		}
 	}
 
 	@Override
 	public Object get(final Object key) {
-		return map.get(key);
+		synchronized (map) {
+			return map.get(key);
+		}
 	}
 
 	@Override
 	public Object put(final Object key, final Object value) {
-		return map.put(key, value);
+		synchronized (map) {
+			return map.put(key, value);
+		}
 	}
 
 	@Override
 	public Object remove(final Object key) {
-		return map.remove(key);
+		synchronized (map) {
+			return map.remove(key);
+		}
 	}
 
 	@Override
 	public void putAll(final Map m) {
-		map.putAll(m);
+		synchronized (map) {
+			map.putAll(m);
+		}
 	}
 
 	@Override
 	public void clear() {
-		map.clear();
+		synchronized (map) {
+			map.clear();
+		}
 	}
 
 	@Override
 	public Set keySet() {
-		return map.keySet();
+		synchronized (map) {
+			return new HashSet(map.keySet());
+		}
 	}
 
 	@Override
 	public Collection values() {
-		return map.values();
+		synchronized (map) {
+			return new ArrayList(map.values());
+		}
 	}
 
 	@Override
 	public Set<Map.Entry> entrySet() {
-		return map.entrySet();
+		synchronized (map) {
+			return new HashSet<Map.Entry>(map.entrySet());
+		}
 	}
 
 	@Override
 	public boolean equals(final Object o) {
-		return map.equals(o);
+		synchronized (map) {
+			return map.equals(o);
+		}
 	}
 
 	@Override
 	public int hashCode() {
-		return map.hashCode();
+		synchronized (map) {
+			return map.hashCode();
+		}
 	}
 }

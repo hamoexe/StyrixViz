@@ -22,7 +22,7 @@ import android.opengl.GLES20;
 import com.hamo.styrixviz.Common.Vec2f;
 import com.hamo.styrixviz.Common.tlog;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import mdesl.graphics.ITexture;
 import mdesl.graphics.glutils.ShaderProgram;

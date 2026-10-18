@@ -17,9 +17,9 @@
 
 package com.hamo.styrixviz.Common;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import java.util.ArrayList;
 import java.util.Collection;

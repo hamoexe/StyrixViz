@@ -17,8 +17,8 @@
 
 package com.hamo.styrixviz;
 
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewPager;
+import androidx.core.view.MotionEventCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.view.MotionEvent;
 
 import com.hamo.styrixviz.R;

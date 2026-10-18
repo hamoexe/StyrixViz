@@ -1,59 +1,49 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    namespace 'com.hamo.styrixviz'
+    compileSdk 36
 
     defaultConfig {
-        //Be sure to use correct applicationId in PUBLISH VERSION
         applicationId "com.hamo.styrixviz"
-        minSdkVersion 16
-        targetSdkVersion 28
-        multiDexEnabled true
+        minSdk 21
+        // Kept at 28 on purpose: the app still uses legacy storage and foreground-service behaviour.
+        targetSdk 28
 
         versionCode 1
         versionName "1.0.0"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled true //Set to true in PUBLISH VERSION
-            //shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
     compileOptions {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 repositories {
     google()
     mavenCentral()
-    maven { url "https://jitpack.io" }
 
     flatDir {
         dirs 'libs'
     }
-
 }
 
 dependencies {
-    api fileTree(include: ['*.jar'], dir: 'libs')
-
-    api group: 'com.google.guava', name: 'guava', version: '24.1-jre'
+    // libs/*.jar: annotations-12.0.jar, picasso-2.5.2.jar
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation project(':ColorMixer')
-    implementation(name:'ExoPlayer-library-release', ext:'aar')
-    implementation(name:'recyclerviewfastscroller-release', ext:'aar')
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:support-v13:28.0.0'
-    //implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'com.google.android.gms:play-services-ads:17.2.1'
+    // Prebuilt aars (kept in libs so they do not depend on a remote repository)
+    implementation(name: 'ExoPlayer-library-release', ext: 'aar')
+    implementation(name: 'recyclerviewfastscroller-release', ext: 'aar')
 
-    implementation 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
 }

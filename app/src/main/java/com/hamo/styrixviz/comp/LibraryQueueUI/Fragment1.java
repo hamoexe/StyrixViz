@@ -19,8 +19,8 @@ package com.hamo.styrixviz.comp.LibraryQueueUI;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +41,7 @@ import com.hamo.styrixviz.R;
 import com.emtronics.dragsortrecycler.DragSortRecycler;
 
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

@@ -20,7 +20,7 @@ package com.hamo.styrixviz.comp.LibraryQueueUI.ViewHolders;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 public class ViewHolderFactory {
 

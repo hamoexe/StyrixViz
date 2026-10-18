@@ -20,7 +20,7 @@ package com.hamo.styrixviz.comp.LibraryQueueUI.Containers;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.hamo.styrixviz.Common.MultiList;

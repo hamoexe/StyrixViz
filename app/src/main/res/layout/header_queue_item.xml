@@ -216,14 +216,4 @@
 
     </HorizontalScrollView>
 
-    <!--Comment this control out to disable ads on list view top (queue page) ; APP RESKIN -->
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:visibility="gone"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/ads_header_banner_ad_unit_id"/>
 </LinearLayout>

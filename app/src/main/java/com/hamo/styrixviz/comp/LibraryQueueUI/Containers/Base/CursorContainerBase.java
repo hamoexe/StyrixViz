@@ -19,7 +19,7 @@ package com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Base;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.hamo.styrixviz.Common.MediaStoreUtils;
@@ -28,7 +28,7 @@ import com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Adapter.IAdapter;
 import com.hamo.styrixviz.comp.LibraryQueueUI.Containers.Adapter.ViewAdapter;
 import com.hamo.styrixviz.comp.LibraryQueueUI.ViewHolders.ViewHolderFactory;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

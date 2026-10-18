@@ -19,7 +19,7 @@ package com.hamo.styrixviz.comp.ContextualActionBar;
 
 import com.hamo.styrixviz.comp.Common.IGeneralItemContainerIdentifier;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 import java.util.ArrayList;
 import java.util.List;

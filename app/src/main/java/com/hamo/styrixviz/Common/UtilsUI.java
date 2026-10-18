@@ -23,7 +23,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Looper;
-import android.support.annotation.AttrRes;
+import androidx.annotation.AttrRes;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -36,7 +36,7 @@ import android.widget.ListPopupWindow;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import junit.framework.Assert;
+import com.hamo.styrixviz.Common.Assert;
 
 public class UtilsUI {
 
