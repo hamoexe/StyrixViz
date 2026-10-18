@@ -58,7 +58,7 @@ public class MyThumbnailUtils {
         } finally {
             try {
                 retriever.release();
-            } catch (RuntimeException ex) {
+            } catch (Exception ex) {
                 // Ignore failures while cleaning up.
             }
         }
